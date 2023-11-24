@@ -10,7 +10,30 @@ const client = new MongoClient(
 
 const db = client.db();
 
+
+
 const users =  db.collection("users");
 const jobs = db.collection("jobs");
-const company = db.collection("company")
-module.exports = {users, jobs,company}
+const company = db.collection("company");
+
+const search = db.collection("search");
+
+// jobs.createIndex(
+//   {
+//     title:'text',
+//     company_name:'text'
+//   }, {
+//     name:"searchIndexTitle"
+//   }
+// )
+
+// company.createIndex(
+//   {
+//     company_name:'text',
+//     location:'text'
+//   }
+// )
+
+
+
+module.exports = {users, jobs,company,search}
