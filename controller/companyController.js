@@ -53,7 +53,7 @@ const getUserCompanyFollowed = async (req) => {
     const compPromise = cids.map((e) =>
       company.findOne({ _id: new mongodb.ObjectId(e) })
     );
-    return  Promise.allSettled(compPromise);
+    return  (await Promise.allSettled(compPromise)).map(e=> e.value);
   };
 
 module.exports = {
